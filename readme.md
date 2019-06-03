@@ -1,6 +1,6 @@
 ## TF_CLI_ARGS and TF_CLI_ARGS_name Terraform variables
 
-    Terraform uses subcommands like `apply` , `plan` , `destoy`, to all those subcommands flags might be passed in order
+   Terraform uses subcommands like `apply` , `plan` , `destoy`, to all those subcommands flags might be passed in order
 to change the default behaviour of Terraform, for example the flag `-refresh=false`. Passing flags can be done manually, each time typing it alongside the subcommand for example `terraform plan -refresh=false`. There are cases where passing a curtain flag with parameter might be needed constantly, when integrating Terraform with particular CI solution for example. TF_CLI_ARGS and TF_CLI_ARGS_name environmental variables come handy in exactly such cases.
 
 - `TF_CLI_ARGS`  - It is used to change the default behaviour of Terraform for all subcommands. For example, if environment variable with name  TF_CLI_ARGS is set to `TF_CLI_ARGS=-refresh=false`, this means that all Terraform subcommands are going to be executed with `-refresh=false` flag before the flags and arguments passed by the user. For example if the users executes `terraform plan -no-color` it is going to translate into `terraform apply -refresh=false -no-color`. One thing to remember is that, all flags and parameters specified in TF_CLI_ARG are always going to be placed before the flags and parameters passed by the user.
